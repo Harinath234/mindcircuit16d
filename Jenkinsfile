@@ -8,13 +8,13 @@ pipeline {
                 echo 'This stage clones sc from git repo'
 				git branch: 'main', url: 'https://github.com/Harinath234/mindcircuit16d.git'
             }
-			
+		}
         stage('build artifact') {
             steps {
                 echo 'This stage build artifact using maven'
 				sh 'mvn clean install'
             }
-			
+		}
         stage('Deploy to tomcat') {
             steps {
                 echo 'This stage deploys .war to tomcat webserver'
@@ -23,6 +23,4 @@ pipeline {
 			
         }
     }
-}
-	}
 }
